@@ -51,11 +51,28 @@
     <!-- Projects Filter -->
     <section class="projects-section">
         <div class="container">
-            <div class="projects-filter" data-animate>
-                <button class="filter-btn active" data-filter="all">Tous</button>
-                <button class="filter-btn" data-filter="web">Sites Web</button>
-                <button class="filter-btn" data-filter="app">Applications</button>
-                <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+            <div class="projects-toolbar" data-animate>
+                <div class="projects-search" role="search">
+                    <label class="sr-only" for="projects-search">Rechercher un projet</label>
+                    <input
+                        id="projects-search"
+                        class="projects-search-input"
+                        type="search"
+                        placeholder="Rechercher par nom, mot-clé..."
+                        autocomplete="off"
+                    >
+                    <button type="button" class="projects-search-clear" id="projects-search-clear" aria-label="Effacer la recherche">
+                        ×
+                    </button>
+                </div>
+
+                <div class="projects-filter" aria-label="Filtrer les projets">
+                    <button type="button" class="filter-btn active" data-filter="all">Tous</button>
+                    <button type="button" class="filter-btn" data-filter="web">Sites Web</button>
+                    <button type="button" class="filter-btn" data-filter="app">Applications</button>
+                    <button type="button" class="filter-btn" data-filter="ecommerce">E-commerce</button>
+                </div>
+
             </div>
 
             <div class="projects-grid-full">
@@ -86,7 +103,7 @@
                             <span class="tag">Node.js</span>
                             <span class="tag">Supabase</span>
                         </div>
-                        <h3 class="project-title">Travel connect</h3>
+                        <h3 class="project-title">Assirik Travel connect</h3>
                         <p class="project-description">
                             Plateforme complète tout pour rendre les déplacements faciles même hors des jours du travail. Réservation de billets d'avion,
                              assistance de visa shengen et assurance voyage,auto, moto (24h/7j)
@@ -386,7 +403,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 DRAME ALGORIX. Tous droits réservés.</p>
-                <a href="#" class="cv-link">Télécharger mon CV</a>
+                <a href="https://drive.google.com/file/d/1IYiq5hnFpl_rKLBDL0pR4NJHMQWqo3rx/view?usp=drive_link" class="cv-link">Télécharger mon CV</a>
             </div>
         </div>
     </footer>

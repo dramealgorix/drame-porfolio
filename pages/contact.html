@@ -128,6 +128,35 @@
                     </div>
                 </div>
 
+                <!-- Formulaire de contact -->
+                <div class="contact-forms" data-animate>
+                    <!-- Contact Form Rapide -->
+                    <div class="form-card" id="contact-form-card">
+                        <h3 class="form-title">Envoyez-moi un message</h3>
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-group">
+                                <label for="name">Nom complet *</label>
+                                <input type="text" id="name" name="name" required placeholder="Votre nom">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required placeholder="votre@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Sujet</label>
+                                <input type="text" id="subject" name="subject" placeholder="Sujet de votre message">
+                            </div>
+                
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <span>Envoyer le message</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 2L11 13"/>
+                                    <path d="M22 2l-7 20-4-9-9-4 20-7z"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+
                     <!-- Soumettre Formulaire de contact projet -->
                     <div class="form-card" id="project-form-card">
                         <h3 class="form-title">Demande de Projet</h3>
@@ -143,10 +172,7 @@
                                     <input type="email" id="project-email" name="email" required placeholder="votre@email.com">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="project-company">Entreprise</label>
-                                <input type="text" id="project-company" name="company" placeholder="Nom de votre entreprise">
-                            </div>
+        
                             <div class="form-group">
                                 <label for="project-type">Type de projet *</label>
                                 <select id="project-type" name="project-type" required>
@@ -279,7 +305,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 DRAME ALGORIX. Tous droits réservés.</p>
-                <a href="#" class="cv-link">Télécharger mon CV</a>
+                <a href="https://drive.google.com/file/d/1IYiq5hnFpl_rKLBDL0pR4NJHMQWqo3rx/view?usp=drive_link" class="cv-link">Télécharger mon CV</a>
             </div>
         </div>
     </footer>
