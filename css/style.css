@@ -310,10 +310,6 @@ select {
     color: var(--color-primary);
 }
 
-.nav-link.active {
-    color: var(--color-primary);
-    font-weight: 600;
-}
 
 .nav-actions {
     display: flex;
@@ -1093,8 +1089,7 @@ section {
     box-shadow: var(--shadow-sm);
 }
 
-.filter-btn:hover,
-.filter-btn.active {
+.filter-btn:hover {
     background: var(--color-primary);
     color: var(--color-white);
     border-color: var(--color-primary);
@@ -1665,6 +1660,29 @@ section {
 /* ===================================
    Contact Page
    =================================== */
+/* Affichage d'erreur du formulaire de contact */
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+/* Affichage succès du formulaire de contact */
+
+.success-message {
+    background-color: #dcfce7;
+    color: #166534;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* ===================================
+   Formulaire de projet
+   =================================== */
+
+   
+
 .contact-section {
     padding: var(--section-y) 0;
     background: var(--surface-elevated);
@@ -1925,14 +1943,10 @@ section {
     align-items: center;
     justify-content: center;
     background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    transition: all var(--transition-base);
 }
 
-.modal.active {
-    opacity: 1;
-    visibility: visible;
+.modal[hidden] {
+    display: none !important;
 }
 
 .modal-content {
@@ -1943,12 +1957,6 @@ section {
     max-width: 400px;
     border: 1px solid var(--border-subtle);
     box-shadow: var(--shadow-2xl);
-    transform: scale(0.9);
-    transition: transform var(--transition-base);
-}
-
-.modal.active .modal-content {
-    transform: scale(1);
 }
 
 .modal-icon {
@@ -2184,18 +2192,7 @@ section {
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
         box-shadow: 0 1px 0 rgba(15, 23, 42, 0.06);
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, visibility 0.3s;
-        pointer-events: none;
-    }
-
-    .nav-menu.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
+        display: none;
     }
 
     .nav-menu li {

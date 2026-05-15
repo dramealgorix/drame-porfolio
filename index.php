@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de développeur web frontend - Création de sites web modernes et performants">
+    <title>DRAME ALGORIX| Développeur Web Frontend</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+    <!-- Navigation -->
+     <!-- Require navigation remplacer dans composants/navigation.php -->     
+     <?php require 'composants/navigation.php'; ?>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="hero-badge animate-fade-in">Disponible pour de nouveaux projets</span>
+                <h1 class="hero-title animate-fade-in-up">
+                    Bonjour, je suis <span class="text-gradient">DRAME Yahaya</span>
+                </h1>
+                <p class="hero-subtitle animate-fade-in-up delay-1">
+                    Développeur Web Frontend et WordPress
+                </p>
+                <p class="hero-description animate-fade-in-up delay-2">
+                    Je crée des sites web modernes, rapides et conçus pour vendre. Vitrine, e-commerce ou projet sur mesure — transformez votre présence en ligne en véritable outil de croissance.
+
+                </p>
+                <div class="hero-cta animate-fade-in-up delay-3">
+                    <a href="/pages/projects.php" class="btn btn-primary">
+                        <span>Voir mes projets</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="/pages/contact.php" class="btn btn-secondary">Me contacter</a>
+                </div>
+                    <!--Liens vers les reseaux sociaux-->
+                <div class="hero-social animate-fade-in-up delay-4">
+                    <a href="https://github.com" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:contact@dramealgorix.com" class="social-link" aria-label="Email">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="4" width="20" height="16" rx="2"/>
+                            <path d="M22 6l-10 7L2 6"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual animate-fade-in-left">
+                <div class="hero-image-wrapper">
+                    <div class="hero-shape"></div>
+                    <div class="hero-image">
+                        
+                        <!--//image de moi en jpg -->
+                        <img src="images/WhatsApp Image 2026-04-06 at 15.59.02.jpeg" alt=" image DRAME Yahaya - Développeur Web">
+                    </div>
+                    <div class="floating-card card-1">
+                        <span class="card-icon">💻</span>
+                        <span class="card-text">2+ ans d'expérience</span>
+                    </div>
+                    <div class="floating-card card-2">
+                        <span class="card-icon">🚀</span>
+                        <span class="card-text">10+ projets livrés</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <a href="#skills" class="scroll-indicator"> 
+                <span>Découvrir</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M19 12l-7 7-7-7"/> 
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <!-- Skills Section  avec les svg icones correspondants-->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Compétences</span>
+                <h2 class="section-title">Technologies & Expertise</h2>
+                <p class="section-description">
+                    Des technologies modernes pour créer des solutions web performantes et évolutives.
+                </p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card" data-animate>
+                    <div class="skill-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M4 6h16v12H4z"/>
+                            <path d="M8 18l-2 3"/>
+                            <path d="M16 18l2 3"/>
+                            <path d="M8 10h8"/>
+                            <path d="M8 14h6"/>
+                        </svg>
+                    </div>
+                    <h3 class="skill-title">HTML &amp; CSS</h3>
+                    <p class="skill-description">Intégration responsive, animations, accessibilité et UI soignée</p>
+                    <div class="skill-level">
+                        <div class="skill-bar" style="--level: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-card" data-animate>
+                    <div class="skill-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20 3H4a1 1 0 00-1 1v16a1 1 0 001 1h16a1 1 0 001-1V4a1 1 0 00-1-1z"/>
+                            <path d="M9 9h6v6H9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="skill-title">JavaScript</h3>
+                    <p class="skill-description">ES6+, interactions dynamiques et en cours de perfectionnement</p>
+                    <div class="skill-level">
+                        <div class="skill-bar" style="--level: 45%"></div>
+                    </div>
+                </div>
+                <div class="skill-card" data-animate>
+                    <div class="skill-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="9"/>
+                            <text x="12" y="15" text-anchor="middle" font-size="9" font-family="Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif" fill="currentColor" stroke="none" font-weight="700">W</text>
+                        </svg>
+                    </div>
+                    <h3 class="skill-title">WordPress</h3>
+                    <p class="skill-description">Création de sites vitrines & e-commerce, thèmes et optimisation SEO</p>
+                    <div class="skill-level">
+                        <div class="skill-bar" style="--level: 98%"></div>
+                    </div>
+                </div>
+                <div class="skill-card" data-animate>
+                    <div class="skill-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 19h20L12 2z"/>
+                            <path d="M12 16v.01"/>
+                            <path d="M12 9v4"/>
+                        </svg>
+                    </div>
+                    <h3 class="skill-title">PHP</h3>
+                    <p class="skill-description">Backend robuste et intégrations CMS (en cours)</p>
+                    <div class="skill-level">
+                        <div class="skill-bar" style="--level: 25%"></div>
+                    </div>
+                </div>
+                <div class="skill-card" data-animate>
+                    <div class="skill-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 3c-4.418 0-8 1.343-8 3v12c0 1.657 3.582 3 8 3s8-1.343 8-3V6c0-1.657-3.582-3-8-3z"/>
+                            <path d="M4 6c0 1.657 3.582 3 8 3s8-1.343 8-3"/>
+                            <path d="M4 12c0 1.657 3.582 3 8 3s8-1.343 8-3"/>
+                        </svg>
+                    </div>
+                    <h3 class="skill-title">Bases de données</h3>
+                    <p class="skill-description">Gestion de bases de données MySQL & Supabase</p>
+                    <div class="skill-level">
+                        <div class="skill-bar" style="--level: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-card" data-animate>
+                    <div class="skill-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2v4"/>
+                            <path d="M12 18v4"/>
+                            <path d="M4 12H2"/>
+                            <path d="M22 12h-2"/>
+                            <path d="M5.5 5.5l-1.4-1.4"/>
+                            <path d="M19.9 19.9l-1.4-1.4"/>
+                            <path d="M18.5 5.5l1.4-1.4"/>
+                            <path d="M4.1 19.9l1.4-1.4"/>
+                            <path d="M8.5 14.5c2.5 1.8 5.2 1.8 7 0"/>
+                            <path d="M9 9.5h.01"/>
+                            <path d="M15 9.5h.01"/>
+                        </svg>
+                    </div>
+                    <h3 class="skill-title">Outils IA &amp; Développement moderne</h3>
+                    <p class="skill-description">Productivité, assistance au code, automatisation et bonnes pratiques</p>
+                    <div class="skill-level">
+                        <div class="skill-bar" style="--level: 80%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Aperçu des projets -->
+    <section class="projects-preview">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Portfolio</span>
+                <h2 class="section-title">Projets Récents</h2>
+                <p class="section-description">
+                    Une sélection de mes réalisations les plus récentes et impactantes.
+                </p>
+            </div>
+            <div class="projects-grid">
+                <article class="project-card featured" data-animate>
+                    <div class="project-image">
+                        <img src="images/agenceconnect.png" alt="images/agenceconnect.png">
+                        <div class="project-overlay">
+                            <a href="projects.html" class="project-link">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                                    <path d="M15 3h6v6"/>
+                                    <path d="M10 14L21 3"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Supabase</span>
+                        </div>
+                        <h3 class="project-title">Travel connect</h3>
+                        <p class="project-description">
+                            Plateforme complète tout pour rendre les déplacements faciles même hors des jours du trava. Réservation de billets d'avion,
+                            assistance visa et assurance (voyage,auto,moto) 24h/7j.
+                        </p>
+                    </div>
+                </article>
+                <article class="project-card" data-animate>
+                    <div class="project-image">
+                        <img src="images/FitTrack.png" alt="Application Mobile Fitness">
+                        <div class="project-overlay">
+                            <a href="projects.html" class="project-link">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                                    <path d="M15 3h6v6"/>
+                                    <path d="M10 14L21 3"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">Firebase</span>
+                        </div>
+                        <h3 class="project-title">App Fitness</h3>
+                        <p class="project-description">
+                            Application web progressive pour le suivi d'entraînements et nutrition.
+                        </p>
+                    </div>
+                </article>
+                <article class="project-card" data-animate>
+                    <div class="project-image">
+                        <img src="images/boutique fashion.png" alt="Site E-commerce Mode">
+                        <div class="project-overlay">
+                            <a href="projects.html" class="project-link">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                                    <path d="M15 3h6v6"/>
+                                    <path d="M10 14L21 3"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">WordPress</span>
+                            <span class="tag">WooCommerce</span>
+                        </div>
+                        <h3 class="project-title">Boutique Mode</h3>
+                        <p class="project-description">
+                            Site e-commerce premium avec expérience d'achat optimisée.
+                        </p>
+                    </div>
+                </article>
+            </div>
+            <div class="section-cta">
+                <a href="/pages/projects.html" class="btn btn-primary">
+                    <span>Voir tous les projets</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Stats -->
+
+    <!-- Bouton d'appel Call To action (CTA) Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-animate>
+                <h2 class="cta-title">Prêt à donner vie à votre projet ?</h2>
+                <p class="cta-description">
+                    Discutons de vos besoins et créons ensemble quelque chose d'exceptionnel.
+                </p>
+                <div class="cta-buttons">
+                    <a href="/pages/contact.php" class="btn btn-primary btn-large">
+                        <span>Démarrer un projet</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="/pages/about.php" class="btn btn-outline btn-large">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+     <!-- j'ai coupé le footer et coller dans composants/footer.php
+      remplacer par la ligne suivante avec require -->
+
+     <?php require 'composants/footer.php'; ?>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

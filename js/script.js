@@ -1,17 +1,8 @@
-/**
- * Portfolio JavaScript
- * Alexandre Dupont - Développeur Web Frontend
- */
 
-// ===================================
-// DOM Ready
-// ===================================
 document.addEventListener('DOMContentLoaded', function() {
     initNavigation();
     initScrollAnimations();
     initCounterAnimation();
-    initProjectsFilter();
-    initContactForms();
     initSmoothScroll();
 });
 
@@ -58,7 +49,7 @@ function initNavigation() {
     }
 }
 
-// ===================================
+// ===================================s
 // Scroll Animations
 // ===================================
 function initScrollAnimations() {
@@ -134,149 +125,12 @@ function animateCounter(element) {
 // ===================================
 // Projects Filter
 // ===================================
-function initProjectsFilter() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card-full');
-    
-    if (filterButtons.length === 0 || projectCards.length === 0) return;
-    
-    filterButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            const filter = this.getAttribute('data-filter');
-            
-            // Update active button
-            filterButtons.forEach(function(btn) {
-                btn.classList.remove('active');
-            });
-            this.classList.add('active');
-            
-            // Filter projects
-            projectCards.forEach(function(card) {
-                const category = card.getAttribute('data-category');
-                
-                if (filter === 'all' || category === filter) {
-                    card.classList.remove('hidden');
-                    card.style.animation = 'fadeInUp 0.5s ease forwards';
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-        });
-    });
-}
+
 
 // ===================================
 // Contact Forms
 // ===================================
-function initContactForms() {
-    const contactForm = document.getElementById('contact-form');
-    const projectForm = document.getElementById('project-form');
-    const successModal = document.getElementById('success-modal');
-    const closeModalBtn = document.getElementById('close-modal');
-    
-    // Contact form submission
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            // Validate form
-            if (validateForm(contactForm)) {
-                // Simulate form submission
-                simulateFormSubmission(contactForm, successModal);
-            }
-        });
-    }
-    
-    // Project form submission
-    if (projectForm) {
-        projectForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            // Validate form
-            if (validateForm(projectForm)) {
-                // Simulate form submission
-                simulateFormSubmission(projectForm, successModal);
-            }
-        });
-    }
-    
-    // Close modal
-    if (closeModalBtn && successModal) {
-        closeModalBtn.addEventListener('click', function() {
-            successModal.classList.remove('active');
-        });
-        
-        // Close modal when clicking outside
-        successModal.addEventListener('click', function(event) {
-            if (event.target === successModal) {
-                successModal.classList.remove('active');
-            }
-        });
-        
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape' && successModal.classList.contains('active')) {
-                successModal.classList.remove('active');
-            }
-        });
-    }
-}
 
-function validateForm(form) {
-    const requiredFields = form.querySelectorAll('[required]');
-    let isValid = true;
-    
-    requiredFields.forEach(function(field) {
-        // Remove previous error styling
-        field.style.borderColor = '';
-        
-        if (!field.value.trim()) {
-            isValid = false;
-            field.style.borderColor = '#ef4444';
-            
-            // Add shake animation
-            field.style.animation = 'shake 0.5s ease';
-            setTimeout(function() {
-                field.style.animation = '';
-            }, 500);
-        }
-        
-        // Email validation
-        if (field.type === 'email' && field.value.trim()) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(field.value)) {
-                isValid = false;
-                field.style.borderColor = '#ef4444';
-            }
-        }
-    });
-    
-    return isValid;
-}
-
-function simulateFormSubmission(form, modal) {
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
-    
-    // Show loading state
-    submitBtn.innerHTML = '<span>Envoi en cours...</span>';
-    submitBtn.disabled = true;
-    
-    // Simulate API call
-    setTimeout(function() {
-        // Reset button
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-        
-        // Reset form
-        form.reset();
-        
-        // Show success modal
-        if (modal) {
-            modal.classList.add('active');
-        }
-    }, 1500);
-}
 
 // ===================================
 // Smooth Scroll
@@ -438,11 +292,3 @@ function initTypingEffect() {
     
     type();
 }
-
-// ===================================
-// Initialize Optional Features
-// ===================================
-// Uncomment to enable
-// initParallax();
-// initLazyLoading();
-// initTypingEffect();
