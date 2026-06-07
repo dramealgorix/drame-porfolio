@@ -9,38 +9,38 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar" role="navigation" aria-label="Principale">
         <div class="container nav-container">
-            <a href="/index.php" class="logo">
+            <a href="index.php" class="logo">
                 <span class="logo-text">DRAME ALGORIX</span>
 
             </a>
             <ul class="nav-menu" id="nav-menu">
                 <li>
-                    <a href="/index.php" 
+                    <a href="/Porfolio_php/index.php" 
                     class="nav-link <?= ($page_courante === 'index.php') ? 'actif' : ''; ?>">
                     Accueil</a>    
                 </li>
 
                 <li>
-                    <a href="/pages/about.php"
+                    <a href="/Porfolio_php/pages/about.php"
                      class="nav-link <?= ($page_courante === 'about.php') ? 'actif' : ''; ?>">
                      À Propos</a>
                 </li>
 
                 <li>
-                    <a href="/pages/projects.php" 
+                    <a href="/Porfolio_php/pages/projects.php" 
                     class="nav-link <?= ($page_courante === 'projects.php') ? 'actif' : ''; ?>">
                     Projets</a>
                 </li>
 
                 <li>
-                    <a href="/pages/blog.php"
+                    <a href="/Porfolio_php/pages/blog.php"
                      class="nav-link <?= ($page_courante === 'blog.php') ? 'actif' : ''; ?>">
                      Blog
                     </a>
                 </li>
 
                 <li>
-                    <a href="/pages/contact.php"
+                    <a href="/Porfolio_php/pages/contact.php"
                      class="nav-link <?= ($page_courante === 'contact.php') ? 'actif' : ''; ?>">
                      Contact
                     </a>

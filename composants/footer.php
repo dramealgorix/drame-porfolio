@@ -4,7 +4,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo">
+                    <a href="/Porfolio_php/index.php" class="logo">
                         <span class="logo-text">DRAME ALGORIX</span>
                     </a>
                     <p class="footer-tagline">Développeur Web Frontend passionné par la création d'expériences digitales exceptionnelles.</p>
@@ -13,11 +13,11 @@
                     <div class="footer-column">
                         <h4>Liens Rapides</h4>
                         <ul>
-                            <li><a href="/index.php">Accueil</a></li>
-                            <li><a href="/pages/about.php">À Propos</a></li>
-                            <li><a href="/pages/projects.php">Projets</a></li>
-                            <li><a href="/pages/blog.php">Blog</a></li>
-                            <li><a href="/pages/contact.php">Contact</a></li>
+                            <li><a href="/Porfolio_php/index.php">Accueil</a></li>
+                            <li><a href="/Porfolio_php/pages/about.php">À Propos</a></li>
+                            <li><a href="/Porfolio_php/pages/projects.php">Projets</a></li>
+                            <li><a href="/Porfolio_php/pages/blog.php">Blog</a></li>
+                            <li><a href="/Porfolio_php/pages/contact.php">Contact</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">

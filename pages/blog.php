@@ -1,3 +1,15 @@
+<?php
+// Enregistrement de la visite
+require_once '../config/connexion.php';
+require_once '../composants/fonctions.php';
+
+enregistrerVisite(
+    $pdo,
+    basename($_SERVER['PHP_SELF'])
+);
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>

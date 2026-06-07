@@ -1,3 +1,15 @@
+<?php
+// Enregistrement de la visite
+require_once '../config/connexion.php';
+require_once '../composants/fonctions.php';
+
+enregistrerVisite(
+    $pdo,
+    basename($_SERVER['PHP_SELF'])
+);
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -183,13 +195,13 @@
                     Je suis toujours ouvert à de nouvelles opportunités et projets passionnants.
                 </p>
                 <div class="cta-buttons">
-                    <a href="contact.html" class="btn btn-primary btn-large">
+                    <a href="contact.php" class="btn btn-primary btn-large">
                         <span>Me contacter</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
                     </a>
-                    <a href="/pages/projects.php" class="btn btn-outline btn-large">Voir mes projets</a>
+                    <a href="projects.php" class="btn btn-outline btn-large">Voir mes projets</a>
                 </div>
             </div>
         </div>

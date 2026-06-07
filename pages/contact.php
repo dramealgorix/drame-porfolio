@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+require_once '../config/connexion.php';
+require_once '../composants/fonctions.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,12 +20,8 @@
 </head>
 <body>
     <!-- Navigation -->
-         <!-- Require navigation remplacer dans composants/navigation.php -->     
-             <?php require '../composants/navigation.php'; ?>
-
-        <!-- Fonction de validation d'un champ -->
-           <?php require '../composants/fonctions.php'; ?>
-
+        <?php require '../composants/navigation.php'; ?>
+        
             <!-- TRAITEMENT DES FORMULAIRES -->
              <!-- Formulaire de contact -->
 
@@ -27,53 +30,91 @@
                 $name = "";
                 $email = "";
                 $subject = "";
+
                 $erreurs = [];
                 $succes = "";
+                
+                // Génération du token CSRF
+                $csrfToken = genererTokenCSRF();
 
                 if (isset($_POST["contact_submit"])) {
 
-                    // Nettoyage et Récuperation
-                    $name = nettoyer($_POST["name"]);
-                    $email = nettoyer($_POST["email"]);
-                    $subject = nettoyer($_POST["subject"]);
-            
-                    // Nom
-                    if (empty($_POST["name"])) {
-                        $erreurs["name"] = "Le nom est obligatoire.";
-                    }
+    /*
+    |--------------------------------------------------------------------------
+    | Vérification CSRF
+    |--------------------------------------------------------------------------
+    */
+    if (
+        !isset($_POST['csrf_token']) ||
+        !verifierTokenCSRF($_POST['csrf_token'])
+    ) {
 
-                    // Email
-                    if (!champ_requis($_POST["email"])){
-                        $erreurs["email"] = "L'adresse e-mail est obligatoire.";
-                    }
+        $erreurs["csrf"] = "Jeton CSRF invalide.";
 
-                    elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                        $erreurs["email"] = "L'adresse e-mail est invalide.";
-                    
-                    }else{
-                        $email = nettoyer($_POST["email"]);
-                    }
+    } else {
 
-                    // Sujet
-                    if (!champ_requis($_POST["subject"])) {
-                        $erreurs["subject"] = "Le sujet ne peut pas être vide.";
-                    }
+        // Récupération
+        $name = nettoyer($_POST["name"]);
+        $email = nettoyer($_POST["email"]);
+        $subject = nettoyer($_POST["subject"]);
 
-                     // I aucune erreur >>> Succès
-                    if(empty($erreurs)){
-                        $succes = "Votre message a été envoyé avec succès !";
+        // Validation
+        if (empty($_POST["name"])) {
+            $erreurs["name"] = "Le nom est obligatoire.";
+        }
 
-                         // Réinitialiser les champs si les données sont corrects
-                            $name = "";
-                            $email = "";
-                            $subject = "";
-                    }
-                }
+        if (!champ_requis($_POST["email"])) {
+            $erreurs["email"] = "L'adresse e-mail est obligatoire.";
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $erreurs["email"] = "L'adresse e-mail est invalide.";
+        }
+
+        if (!champ_requis($_POST["subject"])) {
+            $erreurs["subject"] = "Le sujet ne peut pas être vide.";
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Insertion en base
+        |--------------------------------------------------------------------------
+        */
+        if (empty($erreurs)) {
+
+            $sql = "
+                INSERT INTO messages_contact (
+                    nom,
+                    email,
+                    message
+                )
+                VALUES (
+                    :nom,
+                    :email,
+                    :message
+                )
+            ";
+
+            $requete = $pdo->prepare($sql);
+
+            $requete->execute([
+                'nom' => $name,
+                'email' => $email,
+                'message' => $subject
+            ]);
+
+            $succes = "Votre message a été envoyé avec succès !";
+            // Réinitialisation des champs apres succès
+            $name = "";
+            $email = "";
+            $subject = "";
+        }
+    }
+}
             ?>
             <!-- Traitement du formulaire projet -->
     
         <?php
             // Variables du projet
+
             $project_name = "";
             $project_email = "";
             $project_type = "";
@@ -84,14 +125,22 @@
             $project_succes = "";
             $demande = []; 
 
-                if (isset($_POST["project_submit"])) {
-                // Nettoyage
-                $project_name = nettoyer($_POST["project_name"]);
-                $project_email = nettoyer($_POST["project_email"]);
-                $project_type = nettoyer($_POST["project_type"]);
-                $project_budget = nettoyer($_POST["project_budget"]);
-                $project_description = nettoyer($_POST["project_description"]);
+                
+                    if (isset($_POST["project_submit"])) {
 
+                        // Vérification CSRF
+                        if (
+                            !isset($_POST['csrf_token']) ||
+                            !verifierTokenCSRF($_POST['csrf_token'])
+                        ) {
+                            $project_erreurs["csrf"] = "Jeton CSRF invalide.";
+                        } else {
+                            // Le token est valide, on peut continuer le traitement
+                            $project_name = nettoyer($_POST["project_name"]);
+                            $project_email = nettoyer($_POST["project_email"]);
+                            $project_type = nettoyer($_POST["project_type"]);
+                            $project_budget = nettoyer($_POST["project_budget"]);
+                            $project_description = nettoyer($_POST["project_description"]);
 
                 // Nom
                if (!champ_requis($_POST["project_name"])){
@@ -106,7 +155,7 @@
                     $project_erreurs ["project_email"] = "Adresse email invalide.";
 
                }else {
-                    $email = nettoyer($_POST["project_email"]);
+                    $project_email = nettoyer($_POST["project_email"]);
                }
 
                // Type projet 
@@ -122,20 +171,45 @@
                // Si aucune erreur
                  if (empty($project_erreurs)) {
                 
-                // Tableau associatif
-                $demande = [
+                /*-- Tableau associatif transfomé pour affiher dans la BASE DE DONNEE */
+                    $sql = "
+                    INSERT INTO demandes_projet (
+                        nom,
+                        email,
+                        type_projet,
+                        description,
+                        budget
+                    )
+                    VALUES (
+                        :nom,
+                        :email,
+                        :type_projet,
+                        :description,
+                        :budget
+                    )
+                ";
 
-                'nom' => $project_name,
-                'email' => $project_email,
-                'type_projet' => $project_type,
-                'budget' => $project_budget,
-                'description' => $project_description,
-                ];
+                $requete = $pdo->prepare($sql);
+
+                $requete->execute([
+                    'nom' => $project_name,
+                    'email' => $project_email,
+                    'type_projet' => $project_type,
+                    'description' => $project_description,
+                    'budget' => $project_budget
+                ]);
 
                 // Message succès envoie
                 $project_succes = "Votre demande de projet a été envoyée avec succès.";
-            }
+                 //Reinitialisation des champs apres succès
+                $project_name = "";
+                $project_email = "";
+                $project_type = "";
+                $project_budget = "";
+                $project_description = "";
+            }     
          }
+        }      
         ?>
 
     <!-- Page Header -->
@@ -153,6 +227,7 @@
     <!-- Contact Section -->
     <section class="contact-section">
         <div class="container">
+
             <div class="contact-grid">
                 <!-- Contact Info -->
                 <div class="contact-info" data-animate>
@@ -235,23 +310,30 @@
                     <!-- Contact Form Rapide -->
                     <div class="form-card" id="contact-form-card">
                         <h3 class="form-title">Envoyez-moi un message</h3>
-                        <!-- Affichage message succès -->
+
+                        <!-- Affichage message succès  -->
                         <?php if (!empty($succes)) : ?>
                             <div class="success-message">
                                 <?= $succes ?>
                             </div>
                         <?php endif; ?>
-                            
+                              
                         <form class="contact-form" 
                             id="contact-form" 
                             method ="POST"
                             novalidate>
+                                <!-- Champ caché pour le token CSRF -->
+                                <input
+                                    type="hidden"
+                                    name="csrf_token"
+                                    value="<?= echapper($csrfToken) ?>"
+>
                             <div class="form-group">
                                 <label for="name">Nom complet *</label>
                                 <input type="text"
                                  id="name"
                                  name="name" 
-                                 value="<?= $name ?>"
+                                 value="<?= echapper($name) ?>"
                                  required placeholder="Votre nom">
 
                                     <span class="error">
@@ -263,7 +345,7 @@
                                 <input type="email"
                                  id="email" 
                                  name="email" 
-                                 value="<?= $email ?>"
+                                 value="<?= echapper($email) ?>"
                                  required placeholder="votre@email.com">
                                     <span class="error">
                                         <?= $erreurs["email"] ?? "" ?>
@@ -274,7 +356,7 @@
                                 <input type="text"
                                  id="subject" 
                                  name="subject"
-                                value="<?= $subject ?>"
+                                value="<?= echapper($subject) ?>"
                                  required placeholder="Sujet de votre message">
                                  <span class="error">
                                     <?= $erreurs["subject"] ?? "" ?>
@@ -297,6 +379,12 @@
                     <!-- Soumettre Formulaire projet -->
                     <div class="form-card" id="project-form-card">
                         <h3 class="form-title">Demande de Projet</h3>
+                            <!-- Affichage message succès -->
+                        <?php if (!empty($project_succes)) : ?>
+                            <div class="success-message">
+                                <?= $project_succes ?>
+                            </div>
+                        <?php endif; ?>
 
                         <p class="form-subtitle">Vous avez un projet en tête ? Décrivez-le moi.</p>
                         <form class="project-form" 
@@ -305,11 +393,17 @@
                             novalidate>
                             <div class="form-row">
                                 <div class="form-group">
+                                    <!-- Champ caché pour le token CSRF -->
+                                    <input
+                                        type="hidden"
+                                        name="csrf_token"
+                                        value="<?= echapper($csrfToken) ?>"
+                                    >
                                     <label for="project-name">Nom *</label>
                                     <input type="text" 
                                         id="project-name" 
                                         name="project_name" 
-                                        value="<?= $project_name?>"
+                                        value="<?= echapper($project_name) ?>"
                                         required placeholder="Votre nom">
                                         <span class="error">
                                             <?= $project_erreurs["project_name"] ?? "" ?>
@@ -320,7 +414,7 @@
                                     <input type="email" 
                                         id="project-email" 
                                         name="project_email" 
-                                        value="<?= $project_email?>"
+                                        value="<?= echapper($project_email) ?>"
                                         required placeholder="votre@email.com">
                                         <span class="error">
                                             <?= $project_erreurs["project_email"] ?? "" ?>

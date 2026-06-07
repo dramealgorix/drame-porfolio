@@ -1,5 +1,16 @@
-    <?php
-        require '../composants/fonctions.php';
+<?php
+// Enregistrement de la visite
+require_once '../config/connexion.php';
+require_once '../composants/fonctions.php';
+
+enregistrerVisite(
+    $pdo,
+    basename($_SERVER['PHP_SELF'])
+);
+
+?>
+
+<?php
 
 /* =========================
    TABLEAU DES PROJETS
@@ -203,7 +214,7 @@ if ($mot_cle !== '') {
                     Transformons ensemble votre vision en une réalité digitale exceptionnelle.
                 </p>
                 <div class="cta-buttons">
-                    <a href="/pages/contact.php" class="btn btn-primary btn-large">
+                    <a href="contact.php" class="btn btn-primary btn-large">
                         <span>Discutons de votre projet</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>

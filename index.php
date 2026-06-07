@@ -1,3 +1,16 @@
+<?php
+// journalisation des visites
+require_once 'config/connexion.php';
+require_once 'composants/fonctions.php';
+
+enregistrerVisite(
+    $pdo,
+    basename($_SERVER['PHP_SELF'])
+);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
@@ -32,13 +45,13 @@
 
                 </p>
                 <div class="hero-cta animate-fade-in-up delay-3">
-                    <a href="/pages/projects.php" class="btn btn-primary">
+                    <a href="pages/projects.php" class="btn btn-primary">
                         <span>Voir mes projets</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
                     </a>
-                    <a href="/pages/contact.php" class="btn btn-secondary">Me contacter</a>
+                    <a href="pages/contact.php" class="btn btn-secondary">Me contacter</a>
                 </div>
                     <!--Liens vers les reseaux sociaux-->
                 <div class="hero-social animate-fade-in-up delay-4">
@@ -211,7 +224,7 @@
                     <div class="project-image">
                         <img src="images/agenceconnect.png" alt="images/agenceconnect.png">
                         <div class="project-overlay">
-                            <a href="projects.html" class="project-link">
+                            <a href="projects.php" class="project-link">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
                                     <path d="M15 3h6v6"/>
@@ -261,7 +274,7 @@
                     <div class="project-image">
                         <img src="images/boutique fashion.png" alt="Site E-commerce Mode">
                         <div class="project-overlay">
-                            <a href="projects.html" class="project-link">
+                            <a href="projects.php" class="project-link">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
                                     <path d="M15 3h6v6"/>
@@ -283,7 +296,7 @@
                 </article>
             </div>
             <div class="section-cta">
-                <a href="/pages/projects.html" class="btn btn-primary">
+                <a href="pages/projects.php" class="btn btn-primary">
                     <span>Voir tous les projets</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -304,13 +317,13 @@
                     Discutons de vos besoins et créons ensemble quelque chose d'exceptionnel.
                 </p>
                 <div class="cta-buttons">
-                    <a href="/pages/contact.php" class="btn btn-primary btn-large">
+                    <a href="pages/contact.php" class="btn btn-primary btn-large">
                         <span>Démarrer un projet</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
                     </a>
-                    <a href="/pages/about.php" class="btn btn-outline btn-large">En savoir plus</a>
+                    <a href="pages/about.php" class="btn btn-outline btn-large">En savoir plus</a>
                 </div>
             </div>
         </div>
@@ -322,6 +335,6 @@
 
      <?php require 'composants/footer.php'; ?>
 
-    <script src="/js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
